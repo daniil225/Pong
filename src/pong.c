@@ -73,7 +73,7 @@ void EndGame(char key,Player *p1, Player *p2, Ball *ball);
 // Функции управления игровыми объектами
 void Init_Objects(Player *p1, Player *p2, Ball *ball);
 void Drow_Screen(Player *p1, Player *p2, Ball *ball);
-void Move_Rocket(char ch, Player *p1, Player *p2, Ball *ball);
+void Move_Rocket(char ch, Player *p1, Player *p2);
 void Move_Ball(Player *p1, Player *p2, Ball *ball);
 
 //  ////////////////////////////////////////////////////////////////////////
@@ -169,7 +169,7 @@ void Drow_Screen(Player *p1, Player *p2, Ball *ball)
    
 }
 
-void Move_Rocket(char ch, Player *p1, Player *p2, Ball *ball)
+void Move_Rocket(char ch, Player *p1, Player *p2)
 {
     // Обработка движения ракетки первого игрока
     if(ch == A)
@@ -199,7 +199,7 @@ void Move_Rocket(char ch, Player *p1, Player *p2, Ball *ball)
     {
         if(p2->y -1 == 4)
         {
-            p2->y == p2->y;
+            p2->y = p2->y;
         }
         else
         {
@@ -282,7 +282,7 @@ void Play(char key, Player *p1, Player *p2, Ball *ball)
     if(key == ENTER) Move_Ball(p1, p2, ball);
     else if(key == A || key == Z || key == K || key == M)
     {
-        Move_Rocket(key,p1, p2, ball);
+        Move_Rocket(key,p1, p2);
         Move_Ball(p1, p2, ball);
     }
 }
